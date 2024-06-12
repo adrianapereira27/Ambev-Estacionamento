@@ -39,7 +39,7 @@ moto.CadastrarVeiculo("BBB1478");
 Ticket ticketMoto = new Ticket();
 ticketMoto.CriarTicket(carro, DataHoraAtual, usuarioEstatico);
 
-TimeSpan horaAdicionada2 = new TimeSpan(8, 30, 0);
+TimeSpan horaAdicionada2 = new TimeSpan(0, 10, 0);
 ticketMoto.DataHoraSaida = DataHoraAtual.Add(horaAdicionada2);
 
 PrecoMoto precoMoto = new PrecoMoto();

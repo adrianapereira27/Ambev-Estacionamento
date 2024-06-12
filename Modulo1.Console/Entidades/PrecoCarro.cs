@@ -14,7 +14,7 @@
             
             if (diferenca.TotalHours >= 7 && diferenca.TotalHours <= 24 ) return 25;  // diária
 
-            if (diferenca.TotalHours == 0 && diferenca.TotalMinutes <= 10) return 0;  // tolerância 10 min
+            if (diferenca.TotalHours < 1 && diferenca.TotalMinutes <= 10) return 0;  // tolerância 10 min
 
             if (diferenca.TotalHours == 1)
             {
