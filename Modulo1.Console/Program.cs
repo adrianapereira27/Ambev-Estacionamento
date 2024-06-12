@@ -18,7 +18,7 @@ carro.CadastrarVeiculo("AAA1234");
 Ticket ticketCarro = new Ticket();
 ticketCarro.CriarTicket(carro, DataHoraAtual, usuarioEstatico);
 
-TimeSpan horaAdicionada = new TimeSpan(8, 10, 0);
+TimeSpan horaAdicionada = new TimeSpan(1, 05, 0);
 ticketCarro.DataHoraSaida = DataHoraAtual.Add(horaAdicionada);
 
 PrecoCarro precoCarro = new PrecoCarro();

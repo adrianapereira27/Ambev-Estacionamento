@@ -14,7 +14,7 @@
 
             if (diferenca.Hours >= 7 && diferenca.Hours <= 24) return 15;  // diária
 
-            if (diferenca.Hours == 1 && diferenca.Minutes <= 10) return 0;  // tolerância 10 min
+            if (diferenca.Hours == 0 && diferenca.Minutes <= 10) return 0;  // tolerância 10 min
 
             if (diferenca.Hours == 1)
             {
@@ -37,12 +37,12 @@
                 }
                 else
                 {
-                    return Math.Round(valorTotalHoras + (decimal)valorAdicional / 60 * (decimal)diferenca.Minutes, 2);
+                    return Math.Round(valorTotalHoras + (decimal)valorAdicional / 60 * diferenca.Minutes, 2);
                 }
             }
             else
             {
-                return Math.Round((decimal)valorTotalHoras + (decimal)valorAdicional, 2);
+                return Math.Round(valorTotalHoras + (decimal)valorAdicional, 2);
             }
         }
     }
