@@ -11,39 +11,39 @@
             TimeSpan diferenca = (TimeSpan)(ticket.DataHoraSaida - ticket.DataHoraEntrada);
 
             if (ticket.DataHoraEntrada.Hour >= 21) return 15;  // pernoite
-            
-            if (diferenca.TotalHours >= 7 && diferenca.TotalHours <= 24 ) return 25;  // diária
 
-            if (diferenca.TotalHours < 1 && diferenca.TotalMinutes <= 10) return 0;  // tolerância 10 min
+            if (diferenca.Hours >= 7 && diferenca.Hours <= 24) return 25;  // diária
 
-            if (diferenca.TotalHours == 1)
+            if (diferenca.Hours == 1 && diferenca.Minutes <= 10) return 0;  // tolerância 10 min
+
+            if (diferenca.Hours == 1)
             {
                 valorTotalHoras = valorHora;
             }
             else
             {
-                valorTotalHoras = valorHora + (decimal)((diferenca.TotalHours - 1) * valorAdicional);
+                valorTotalHoras = Math.Round(valorHora + (decimal)((diferenca.Hours - 1) * valorAdicional), 2);
             }
 
-            if (diferenca.TotalMinutes <= 10)
+            if (diferenca.Minutes <= 10)
             {
                 return valorTotalHoras;
             }
-            else if (diferenca.TotalMinutes <= 20)
+            else if (diferenca.Minutes <= 20)
             {
-                if (diferenca.TotalHours == 1)
+                if (diferenca.Hours == 1)
                 {
-                    return valorTotalHoras + valorHora / 60 * (decimal)diferenca.TotalMinutes;
+                    return Math.Round(valorTotalHoras + valorHora / 60 * (decimal)diferenca.Minutes, 2);
                 }
                 else
                 {
-                    return valorTotalHoras + valorAdicional / 60 * (decimal)diferenca.TotalMinutes;
+                    return Math.Round(valorTotalHoras + (decimal)valorAdicional / 60 * (decimal)diferenca.Minutes, 2);
                 }
             }
             else
             {
-                return valorTotalHoras + valorAdicional;
-            }            
+                return Math.Round((decimal)valorTotalHoras + (decimal)valorAdicional, 2);
+            }
         }
     }
 }
