@@ -11,8 +11,8 @@
 
         private Usuario()
         {
-            
-        }       
+
+        }
 
         public static Usuario NovoUsuario(string senha, string login, string nome, TipoUsuario tipoUsuario)
         {
@@ -25,16 +25,6 @@
 
             return usuario;
         }
-
-        public static Usuario UsuarioParaLog(string login, string nome)
-        {
-            Usuario usuario = new Usuario();
-            usuario.Login = login;
-            usuario.Nome = nome; 
-            
-            return usuario;
-        }
-
         public void InativarUsuario()
         {
             Ativo = false;

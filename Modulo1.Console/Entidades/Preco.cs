@@ -23,12 +23,13 @@
      */
 
 
-    internal class Preco
+    internal abstract class Preco
     {
-        public TipoVeiculo TipoVeiculo { get; set; }
         public decimal ValorPrimeiraHora { get; set; }
         public decimal ValorAdicionalHora { get; set; }
         public decimal ValorDiaria { get; set; }
         public decimal ValorPernoite { get; set; }
+
+        public abstract decimal CalcularPreco(Ticket ticket);
     }
 }
